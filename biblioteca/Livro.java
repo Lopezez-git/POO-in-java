@@ -1,107 +1,40 @@
-package biblioteca;
+package Biblioteca;
 
 public class Livro {
 
-	private String isbn;
-
-	private String titulo;
-
-	private String autor;
-
-	private int ano;
-
-	private int totalCopias;
-
-	private int copiasDisponiveis;
-
-	public Livro(String isbn, String titulo, String autor, int ano, int totalCopias, int copiasDisponiveis) {
-
-		this.isbn = isbn;
-
-		this.titulo = titulo;
-
+	private String nome;
+	
+	private Autor autor;
+	
+	private String genero;
+	
+	public Livro(String nome, Autor autor, String genero) {
+		
+		this.nome = nome;
+		
 		this.autor = autor;
-
-		this.ano = ano;
-
-		this.totalCopias = totalCopias;
-
-		this.copiasDisponiveis = copiasDisponiveis;
-
-	}
-
-	public boolean emprestar() {
-
-		if (copiasDisponiveis > 0) {
-
-			copiasDisponiveis--;
-
-			return true;
-		} else {
-
-			return false;
-		}
-
-	}
-
-	public void devolver() {
-
-		copiasDisponiveis++;
-	}
-
-	public void adicionarCopias(int quantidade) {
-
-		totalCopias += quantidade;
-
-		copiasDisponiveis += quantidade;
-	}
-
-	public String getTitulo() {
-
-		return this.titulo;
-	}
-
-	public String getIsbn() {
-
-		return this.isbn;
-	}
-
-	public String getAutor() {
-		return this.autor;
+		
+		this.genero = genero;
+		
 	}
 	
-	public int getAno() {
-		
-		return this.ano;
+	public String getNome() {
+		return nome;
 	}
 	
-	public int getTotalCopias() {
-		
-		return this.totalCopias;
+	public Autor getAutor() {
+		return autor;
 	}
 	
-	public int getCopiasDisponiveis() {
-		
-		return copiasDisponiveis;
+	public String getGenero() {
+		return genero;
 	}
 	
 	public String showInfo() {
 		
-		String info = String.format("ISBN do livro %s\n"
-				+ "Titulo do livro: %s\n"
-				+ "Autor do livro: %s\n"
-				+ "Ano de lançamento: %d\n"
-				+ "Total de copias: %d\n"
-				+ "Copias Disponiveis %d", isbn, titulo, autor, ano, totalCopias, copiasDisponiveis);
+		String info = String.format("Nome: %s\nAutor: %s\nGenero: %s", nome, autor.getNome(), genero); 
 		
 		return info;
+		
 	}
-
-	// emprestar()
-	// devolver()
-	// adicionarCopias()
-	// geters()
-	// seters()
-	// showInfo()
-
 }
